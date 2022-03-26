@@ -1,0 +1,1745 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{}
+
+\begin{document}
+
+\hypertarget{ux6458ux8981}{%
+\section{\texorpdfstring{\textbf{摘要}}{摘要}}\label{ux6458ux8981}}
+
+随着信息高速公路的建立，Internet的普及，网络技术的迅猛发展，人类社会已经进入了一个信息化社会。
+
+电子商务指利用简单、快捷、低成本的电子通讯方式，买卖双方通过网络进行各种商贸活动的一种商业交易模式。随着互联网的发展，以及人们消费观念和生活方式的改变，这种新型的商业模式逐渐融入了人们的生活中。通过企业的门户网站，人们可以足不出户的寻找自己所需的物品，通过对不同虚拟商城的访问，``顾客''可以找出性价比最高的商品，自己有极大地选择空间；通过下订单，你可以很快得到自己想要的物品，这给顾客节省很多时间和精力；对于厂家来说，可以极大地降低库存风险，可根据客户需要，按需采购和生产，大大地提高了效益。
+
+本毕业设计的内容是设计并且实现一个基于\emph{web}技术的信息管理系统。系统主要以
+
+关键词：
+
+\hypertarget{abstract}{%
+\section{\texorpdfstring{\textbf{ABSTRACT}}{ABSTRACT}}\label{abstract}}
+
+\textbf{Key words}:
+
+\hypertarget{ux5f15ux8a00}{%
+\section{引言}\label{ux5f15ux8a00}}
+
+\hypertarget{ux7814ux7a76ux73b0ux72b6ux53caux8bbeux8ba1ux76eeux6807}{%
+\section{研究现状及设计目标}\label{ux7814ux7a76ux73b0ux72b6ux53caux8bbeux8ba1ux76eeux6807}}
+
+\hypertarget{ux672cux6587ux7ed3ux6784}{%
+\section{本文结构}\label{ux672cux6587ux7ed3ux6784}}
+
+\hypertarget{ux7cfbux7edfux5e94ux7528ux7684ux5173ux952eux6280ux672f}{%
+\section{系统应用的关键技术}\label{ux7cfbux7edfux5e94ux7528ux7684ux5173ux952eux6280ux672f}}
+
+\hypertarget{ux4ee3ux7801ux7ba1ux7406ux548cux7248ux672cux63a7ux5236}{%
+\subsection{代码管理和版本控制}\label{ux4ee3ux7801ux7ba1ux7406ux548cux7248ux672cux63a7ux5236}}
+
+\hypertarget{git}{%
+\subsubsection{git}\label{git}}
+
+\begin{itemize}
+\item
+  GIT（分布式版本控制系统）
+\item
+  特点
+\end{itemize}
+
+分布式相比于集中式的最大区别在于开发者可以提交到本地，每个开发者通过克隆（git
+clone），在本地机器上拷贝一个完整的Git仓库。
+
+如图1所示是经典的git开发过程。
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/Π/Desktop/新建文件夹/image/format,f_auto.jpeg}
+\caption{}
+\end{figure}
+
+Git的功能特性：
+
+从一般开发者的角度来看，git有以下功能：
+
+1、从服务器上克隆完整的Git仓库（包括代码和版本信息）到单机上。
+
+2、在自己的机器上根据不同的开发目的，创建分支，修改代码。
+
+3、在单机上自己创建的分支上提交代码。
+
+4、在单机上合并分支。
+
+5、把服务器上最新版的代码fetch下来，然后跟自己的主分支合并。
+
+6、生成补丁（patch），把补丁发送给主开发者。
+
+7、看主开发者的反馈，如果主开发者发现两个一般开发者之间有冲突（他们之间可以合作解决的冲突），就会要求他们先解决冲突，然后再由其中一个人提交。如果主开发者可以自己解决，或者没有冲突，就通过。
+
+8、一般开发者之间解决冲突的方法，开发者之间可以使用pull
+命令解决冲突，解决完冲突之后再向主开发者提交补丁。
+
+从主开发者的角度（假设主开发者不用开发代码）看，git有以下功能：
+
+1、查看邮件或者通过其它方式查看一般开发者的提交状态。
+
+2、打上补丁，解决冲突（可以自己解决，也可以要求开发者之间解决以后再重新提交，如果是开源项目，还要决定哪些补丁有用，哪些不用）。
+
+3、向公共服务器提交结果，然后通知所有开发人员。
+
+优点：
+
+适合\href{https://baike.baidu.com/item/分布式开发}{分布式开发}，强调个体。
+
+公共服务器压力和数据量都不会太大。
+
+速度快、灵活。
+
+任意两个开发者之间可以很容易的解决冲突。
+
+离线工作。
+
+缺点：
+
+资料少（起码中文资料很少）。
+
+学习周期相对而言比较长。
+
+不符合常规思维。
+
+代码保密性差，一旦开发者把整个库克隆下来就可以完全公开所有代码和版本信息。
+
+\begin{itemize}
+\item
+  介绍
+\end{itemize}
+
+Git -\/-\/- The stupid content tracker, 傻瓜内容跟踪器。Linus Torvalds
+是这样给我们介绍 Git 的。
+
+Git 是用于
+\href{https://baike.baidu.com/item/Linux内核/10142820}{Linux内核}开发的\href{https://baike.baidu.com/item/版本控制}{版本控制}工具。与常用的版本控制工具
+CVS, Subversion
+等不同，它采用了分布式版本库的方式，不必服务器端软件支持（wingeddevil注：这得分是用什么样的服务端，使用http协议或者git协议等不太一样。并且在push和pull的时候和服务器端还是有交互的。），使源代码的发布和交流极其方便。
+Git 的速度很快，这对于诸如 Linux kernel 这样的大项目来说自然很重要。 Git
+最为出色的是它的合并跟踪（merge tracing）能力。
+
+实际上内核开发团队决定开始开发和使用 Git
+来作为内核开发的版本控制系统的时候，世界开源社群的反对声音不少，最大的理由是
+Git 太艰涩难懂，从 Git
+的内部工作机制来说，的确是这样。但是随着开发的深入，Git
+的正常使用都由一些友好的脚本命令来执行，使 Git
+变得非常好用，即使是用来管理我们自己的开发项目，Git
+都是一个友好，有力的工具。现在，越来越多的著名项目采用 Git
+来管理项目开发.
+
+作为开源自由\href{https://baike.baidu.com/item/原教旨主义/92753}{原教旨主义}项目，Git
+没有对版本库的浏览和修改做任何的权限限制。
+
+目前GIT已经可以在windows下使用，主要方法有二：msysgit和Cygwin。Cygwin和Linux使用方法类似，Windows版本的GIT提供了友好的GUI(图形界面)，安装后很快可以上手，不在此做大篇幅介绍。
+
+本文将以 Git 官方文档 Tutorial， core-tutorial 和 Everyday GIT
+作为蓝本翻译整理，但是暂时去掉了对 Git
+内部工作机制的阐述，力求简明扼要，并加入了作者使用 Git
+的过程中的一些心得体会，注意事项，以及更多的例子。建议你最好通过你所使用的
+Unix / Linux 发行版的安装包来安装 Git, 你可以在线浏览本文
+，也可以通过下面的命令来得到本文最新的版本库，并且通过后面的学习用 Git
+作为工具参加到本文的创作中来。
+
+\begin{itemize}
+\item
+  基本使用
+\end{itemize}
+
+以下是实用主义型的Git命令列表，先大致看一下
+
+\begin{itemize}
+\item
+  \texttt{git\ clone}
+\item
+  \texttt{git\ config}
+\item
+  \texttt{git\ branch}
+\item
+  \texttt{git\ checkout}
+\item
+  \texttt{git\ status}
+\item
+  \texttt{git\ add}
+\item
+  \texttt{git\ commit}
+\item
+  \texttt{git\ push}
+\item
+  \texttt{git\ pull}
+\item
+  \texttt{git\ log}
+\item
+  \texttt{git\ tag}
+\end{itemize}
+
+接下来，将通过对 我的博客 仓库进行实例操作，讲解如何使用 \texttt{Git}
+拉取代码到提交代码的整个流程。
+
+\begin{itemize}
+\item
+  git clone
+\end{itemize}
+
+\begin{quote}
+``
+
+从git服务器拉取代码
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{git clone https://github.com/gafish/gafish.github.com.git}
+\end{Highlighting}
+\end{Shaded}
+
+代码下载完成后在当前文件夹中会有一个 \texttt{gafish.github.com}
+的目录，通过 \texttt{cd\ gafish.github.com} 命令进入目录。
+
+\begin{itemize}
+\item
+  git config
+\end{itemize}
+
+\begin{quote}
+``
+
+配置开发者用户名和邮箱
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{git config user.name gafish}
+\NormalTok{git config user.email gafish@qqqq.com}
+\end{Highlighting}
+\end{Shaded}
+
+每次代码提交的时候都会生成一条提交记录，其中会包含当前配置的用户名和邮箱。
+
+\begin{itemize}
+\item
+  git branch
+\end{itemize}
+
+\begin{quote}
+``
+
+创建、重命名、查看、删除项目分支，通过 \texttt{Git}
+做项目开发时，一般都是在开发分支中进行，开发完成后合并分支到主干。
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{git branch daily/0.0.0}
+\end{Highlighting}
+\end{Shaded}
+
+创建一个名为 \texttt{daily/0.0.0}
+的日常开发分支，分支名只要不包括特殊字符即可。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{git branch {-}m daily/0.0.0 daily/0.0.1}
+\end{Highlighting}
+\end{Shaded}
+
+如果觉得之前的分支名不合适，可以为新建的分支重命名，重命名分支名为
+\texttt{daily/0.0.1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{git branch}
+\end{Highlighting}
+\end{Shaded}
+
+通过不带参数的branch命令可以查看当前项目分支列表
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{git branch {-}d daily/0.0.1}
+\end{Highlighting}
+\end{Shaded}
+
+如果分支已经完成使命则可以通过 \texttt{-d}
+参数将分支删除，这里为了继续下一步操作，暂不执行删除操作
+
+\begin{itemize}
+\item
+  git checkout
+\end{itemize}
+
+\begin{quote}
+``
+
+切换分支
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{git checkout daily/0.0.1}
+\end{Highlighting}
+\end{Shaded}
+
+切换到 \texttt{daily/0.0.1} 分支，后续的操作将在这个分支上进行
+
+\begin{itemize}
+\item
+  git status
+\end{itemize}
+
+\begin{quote}
+``
+
+查看文件变动状态
+\end{quote}
+
+通过任何你喜欢的编辑器对项目中的 \texttt{README.md}
+文件做一些改动，保存。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{git status}
+\end{Highlighting}
+\end{Shaded}
+
+通过 \texttt{git\ status} 命令可以看到文件当前状态
+\texttt{Changes\ not\ staged\ for\ commit:}
+（\emph{改动文件未提交到暂存区}）
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{On branch daily/0.0.1}
+\NormalTok{Changes not staged for commit:}
+\NormalTok{  (use "git add \textless{}file\textgreater{}..." to update what will be committed)}
+\NormalTok{  (use "git checkout {-}{-} \textless{}file\textgreater{}..." to discard changes in working directory)}
+\NormalTok{    modified:   README.md}
+\NormalTok{no changes added to commit (use "git add" and/or "git commit {-}a")}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\item
+  git add
+\end{itemize}
+
+\begin{quote}
+``
+
+添加文件变动到暂存区
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{git add README.md}
+\end{Highlighting}
+\end{Shaded}
+
+通过指定文件名 \texttt{README.md}
+可以将该文件添加到暂存区，如果想添加所有文件可用 \texttt{git\ add\ .}
+命令，这时候可通过 \texttt{git\ status} 看到文件当前状态
+\texttt{Changes\ to\ be\ committed:} （\emph{文件已提交到暂存区}）
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{On branch daily/0.0.1}
+\NormalTok{Changes to be committed:}
+\NormalTok{  (use "git reset HEAD \textless{}file\textgreater{}..." to unstage)}
+\NormalTok{    modified:   README.md}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\item
+  git commit
+\end{itemize}
+
+\begin{quote}
+``
+
+提交文件变动到版本库
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{git commit {-}m \textquotesingle{}这里写提交原因\textquotesingle{}}
+\end{Highlighting}
+\end{Shaded}
+
+通过 \texttt{-m} 参数可直接在命令行里输入提交描述文本
+
+\begin{itemize}
+\item
+  git push
+\end{itemize}
+
+\begin{quote}
+``
+
+将本地的代码改动推送到服务器
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{git push origin daily/0.0.1}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{origin} 指代的是当前的git服务器地址，这行命令的意思是把
+\texttt{daily/0.0.1}
+分支推送到服务器，当看到命令行返回如下字符表示推送成功了。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Counting objects: 3, done.}
+\NormalTok{Delta compression using up to 8 threads.}
+\NormalTok{Compressing objects: 100\% (2/2), done.}
+\NormalTok{Writing objects: 100\% (3/3), 267 bytes | 0 bytes/s, done.}
+\NormalTok{Total 3 (delta 1), reused 0 (delta 0)}
+\NormalTok{remote: Resolving deltas: 100\% (1/1), completed with 1 local objects.}
+\NormalTok{To https://github.com/gafish/gafish.github.com.git}
+\NormalTok{ * [new branch]      daily/0.0.1 {-}\textgreater{} daily/0.0.1}
+\end{Highlighting}
+\end{Shaded}
+
+现在我们回到Github网站的项目首页，点击 \texttt{Branch:master}
+下拉按钮，就会看到刚才推送的 \texttt{daily/00.1} 分支了
+
+\begin{itemize}
+\item
+  git pull
+\end{itemize}
+
+\begin{quote}
+``
+
+将服务器上的最新代码拉取到本地
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{git pull origin daily/0.0.1}
+\end{Highlighting}
+\end{Shaded}
+
+如果其它项目成员对项目做了改动并推送到服务器，我们需要将最新的改动更新到本地，这里我们来模拟一下这种情况。
+
+进入Github网站的项目首页，再进入 \texttt{daily/0.0.1} 分支，在线对
+\texttt{README.md}
+文件做一些修改并保存，然后在命令中执行以上命令，它将把刚才在线修改的部分拉取到本地，用编辑器打开
+\texttt{README.md} ，你会发现文件已经跟线上的内容同步了。
+
+\emph{如果线上代码做了变动，而你本地的代码也有变动，拉取的代码就有可能会跟你本地的改动冲突，一般情况下
+\texttt{Git}
+会自动处理这种冲突合并，但如果改动的是同一行，那就需要手动来合并代码，编辑文件，保存最新的改动，再通过
+\texttt{git\ add\ .} 和
+\texttt{git\ commit\ -m\ \textquotesingle{}xxx\textquotesingle{}}
+来提交合并。}
+
+\begin{itemize}
+\item
+  git log
+\end{itemize}
+
+\begin{quote}
+``
+
+查看版本提交记录
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{git log}
+\end{Highlighting}
+\end{Shaded}
+
+通过以上命令，我们可以查看整个项目的版本提交记录，它里面包含了\texttt{提交人}、\texttt{日期}、\texttt{提交原因}等信息，得到的结果如下：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{commit c334730f8dba5096c54c8ac04fdc2b31ede7107a}
+\NormalTok{Author: gafish \textless{}gafish@qqqq.com\textgreater{}}
+\NormalTok{Date:   Wed Jan 11 09:44:13 2017 +0800}
+\NormalTok{    Update README.md}
+\NormalTok{commit ba6e3d21fcb1c87a718d2a73cdd11261eb672b2a}
+\NormalTok{Author: gafish \textless{}gafish@qqqq.com\textgreater{}}
+\NormalTok{Date:   Wed Jan 11 09:31:33 2017 +0800}
+\NormalTok{    test}
+\NormalTok{.....}
+\end{Highlighting}
+\end{Shaded}
+
+提交记录可能会非常多，按 \texttt{J} 键往下翻，按 \texttt{K} 键往上翻，按
+\texttt{Q} 键退出查看
+
+\begin{itemize}
+\item
+  git tag
+\end{itemize}
+
+\begin{quote}
+``
+
+为项目标记里程碑
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{git tag publish/0.0.1}
+\NormalTok{git push origin publish/0.0.1}
+\end{Highlighting}
+\end{Shaded}
+
+当我们完成某个功能需求准备发布上线时，应该将此次完整的项目代码做个标记，并将这个标记好的版本发布到线上，这里我们以
+\texttt{publish/0.0.1}
+为标记名并发布，当看到命令行返回如下内容则表示发布成功了
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Total 0 (delta 0), reused 0 (delta 0)}
+\NormalTok{To https://github.com/gafish/gafish.github.com.git}
+\NormalTok{ * [new tag]         publish/0.0.1 {-}\textgreater{} publish/0.0.1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{itemize}
+\item
+  .gitignore
+\end{itemize}
+
+\begin{quote}
+``
+
+设置哪些内容不需要推送到服务器，这是一个配置文件
+\end{quote}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{touch .gitignore}
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{.gitignore} 不是 \texttt{Git}
+命令，而在项目中的一个文件，通过设置 \texttt{.gitignore} 的内容告诉
+\texttt{Git}
+哪些文件应该被忽略不需要推送到服务器，通过以上命令可以创建一个
+\texttt{.gitignore}
+文件，并在编辑器中打开文件，每一行代表一个要忽略的文件或目录，如：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{demo.html}
+\NormalTok{build/}
+\end{Highlighting}
+\end{Shaded}
+
+以上内容的意思是 \texttt{Git} 将忽略 \texttt{demo.html} 文件 和
+\texttt{build/} 目录，这些内容不会被推送到服务器上
+
+\begin{itemize}
+\item
+  小结
+\end{itemize}
+
+\hypertarget{githubgitee}{%
+\subsubsection{GitHub\&Gitee}\label{githubgitee}}
+
+\begin{itemize}
+\item
+  Github
+\end{itemize}
+
+GitHub是一个面向\href{https://baike.baidu.com/item/开源/20720669}{开源}及私有\href{https://baike.baidu.com/item/软件/12053}{软件}项目的托管平台，因为只支持Git作为唯一的版本库格式进行托管，故名GitHub。
+
+\begin{itemize}
+\item
+  简介
+\end{itemize}
+
+GitHub于2008年4月10日正式上线，除了\href{https://baike.baidu.com/item/Git/12647237}{Git}代码仓库托管及基本的Web管理界面以外，还提供了订阅、讨论组、文本渲染、在线文件编辑器、协作图谱（报表）、代码片段分享（Gist）等功能。目前，其注册用户已经超过350万，托管版本数量也是非常之多，其中不乏知名开源项目\href{https://baike.baidu.com/item/Ruby/11419}{Ruby}
+on
+Rails、\href{https://baike.baidu.com/item/jQuery/5385065}{jQuery}、\href{https://baike.baidu.com/item/python/407313}{python}等。
+
+2018年6月4日，\href{https://baike.baidu.com/item/微软/124767}{微软}宣布，通过75亿美元的股票交易收购代码托管平台GitHub。
+
+\begin{itemize}
+\item
+  基本功能
+\end{itemize}
+
+如前所述，作为一个分布式的版本控制系统，在Git中并不存在主库这样的概念，每一份\href{https://baike.baidu.com/item/复制}{复制}出的库都可以独立使用，任何两个库之间的不一致之处都可以进行合并。
+
+GitHub可以托管各种git库，并提供一个web界面，但它与外国的\href{https://baike.baidu.com/item/SourceForge/6562141}{SourceForge}、\href{https://baike.baidu.com/item/Google\%20Code}{Google
+Code}或中国的\href{https://baike.baidu.com/item/coding/8921246}{coding}的服务不同，GitHub的独特卖点在于从另外一个项目进行分支的简易性。为一个项目贡献代码非常简单：首先点击项目站点的``fork''的按钮，然后将代码检出并将修改加入到刚才分出的代码库中，最后通过内建的``pull
+request''机制向项目负责人申请代码合并。已经有人将GitHub称为代码玩家的MySpace。
+
+在GitHub进行分支就像在\href{https://baike.baidu.com/item/Myspace}{Myspace}（或\href{https://baike.baidu.com/item/Facebook}{Facebook}）进行交友一样，在社会关系图的节点中不断的连线。
+
+GitHub项目本身自然而然的也在GitHub上进行托管，只不过在一个私有的，公共视图不可见的库中。\href{https://baike.baidu.com/item/开源项目}{开源项目}可以免费托管，但私有库则并不如此。Chris
+Wanstrath，GitHub的开发者之一，肯定了通过付费的私有库来在财务上支持免费库的托管这一计划。
+
+通过与客户的接洽，开发FamSpam，甚至是开发GitHub本身，GitHub的私有库已经被证明了物有所值。任何希望节省时间并希望和团队其它成员一样远离页面频繁转换之苦的人士都会从GitHub中获得他们真正想要的价值。
+
+在GitHub，用户可以十分轻易地找到海量的\href{https://baike.baidu.com/item/开源/20720669}{开源}代码。
+
+\begin{itemize}
+\item
+  Windows应用
+\end{itemize}
+
+GitHub使用git分布式版本控制系统，而git最初是LinusTorvalds为帮助\href{https://baike.baidu.com/item/Linux}{Linux}开发而创造的，它针对的是Linux平台，因此git和Windows从来不是最好的朋友，因为它一点也不像\href{https://baike.baidu.com/item/Windows}{Windows}。GitHub发布了GitHub
+for Windows，为Windows平台开发者提供了一个易于使用的Git图形客户端。
+
+GitHub for
+\href{https://baike.baidu.com/item/Windows}{Windows}是一个Metro风格\href{https://baike.baidu.com/item/应用程序}{应用程序}，\href{https://baike.baidu.com/item/集成}{集成}了自包含版本的Git，bash命令行shell，PowerShell的posh-git扩展。GitHub为Windows用户提供了一个基本的图形前端去处理大部分常用版本控制任务，可以创建版本库，向本地版本库递交补丁，在\href{https://baike.baidu.com/item/本地}{本地}和\href{https://baike.baidu.com/item/远程}{远程}版本库之间同步。\href{https://baike.baidu.com/item/微软}{微软}也通过\href{https://baike.baidu.com/item/CodePlex}{CodePlex}向开发者提供git版本控制系统，而GitHub创造了一个更具有吸引力的Windows版本。
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/Π/Desktop/新建文件夹/image/format,f_auto}
+\caption{}
+\end{figure}
+
+\begin{itemize}
+\item
+  配置管理
+\end{itemize}
+
+GitHub上已自动配置的\href{https://baike.baidu.com/item/Mac/173}{Mac}\href{https://baike.baidu.com/item/笔记本电脑}{笔记本电脑}，一个工具，可以转换设置\href{https://baike.baidu.com/item/Linux/27050}{Linux}或Windows机器。
+
+BOXEN是GitHub的自动化工具，设置和配置的Mac笔记本电脑\href{https://baike.baidu.com/item/软件开发}{软件开发}或其他类型的工作，正在使用他们的开发人员，律师，设计师，付货人，等。我们的想法是准备系统以自动方式和作为无差错尽可能用最少的干预工作。根据GitHub上，与一个新的开发机器上，他的Mac系统成立，并准备在30分钟内提交代码。
+
+BOXEN的基础上收集了大量的几十个木偶模块，使设置的各种软件，如卡桑德拉，Mongo
+DB中，Java软件中，\href{https://baike.baidu.com/item/Python/407313}{Python}和\href{https://baike.baidu.com/item/Ruby/11419}{Ruby}开发中，节点，\href{https://baike.baidu.com/item/JS/10687961}{JS}，\href{https://baike.baidu.com/item/nginx/3817705}{nginx}的，\href{https://baike.baidu.com/item/Skype}{Skype}公司，甚至\href{https://baike.baidu.com/item/MINECRAFT}{MINECRAFT}。虽然机器上配备了一个预配置，每个用户都可以调整它的配置应有的作用。
+
+\begin{itemize}
+\item
+  Gitee
+\end{itemize}
+
+Gitee是\href{https://baike.baidu.com/item/开源中国/5462428}{开源中国}（OSChina）推出的基于Git的代码托管服务。
+
+Gitee包括三个版本，分别是：社区版、企业版和高校版。
+
+\begin{itemize}
+\item
+  发展历程
+\end{itemize}
+
+2016年，Gitee推出企业版，提供企业级代码托管服务 。
+
+\begin{itemize}
+\item
+  主要功能
+\end{itemize}
+
+基于Git的代码托管服务。
+
+\hypertarget{markdown}{%
+\subsubsection{markdown}\label{markdown}}
+
+\begin{itemize}
+\item
+  markdown
+\end{itemize}
+
+Markdown是一种\href{https://baike.baidu.com/item/轻量级标记语言/52671915}{轻量级标记语言}，创始人为约翰·格鲁伯（英语：John
+Gruber）。
+它允许人们使用易读易写的\href{https://baike.baidu.com/item/纯文本格式/9862288}{纯文本格式}编写文档，然后转换成有效的\href{https://baike.baidu.com/item/XHTML/316621}{XHTML}（或者HTML）文档。这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。
+
+由于Markdown的轻量化、易读易写特性，并且对于图片，图表、数学式都有支持，许多网站都广泛使用Markdown来撰写帮助文档或是用于论坛上发表消息。
+如\href{https://baike.baidu.com/item/GitHub/10145341}{GitHub}、\href{https://baike.baidu.com/item/Reddit/1272010}{Reddit}、\href{https://baike.baidu.com/item/Diaspora/10726893}{Diaspora}、\href{https://baike.baidu.com/item/Stack\%20Exchange/13777796}{Stack
+Exchange}、\href{https://baike.baidu.com/item/OpenStreetMap/3171606}{OpenStreetMap}
+、\href{https://baike.baidu.com/item/SourceForge/6562141}{SourceForge}、\href{https://baike.baidu.com/item/简书/5782216}{简书}等，甚至还能被使用来撰写\href{https://baike.baidu.com/item/电子书/346054}{电子书}。
+
+\begin{itemize}
+\item
+  优势
+\end{itemize}
+
+世界上最流行的博客平台\href{https://baike.baidu.com/item/WordPress}{WordPress}和大型CMS如\href{https://baike.baidu.com/item/Joomla}{Joomla}、\href{https://baike.baidu.com/item/Drupal}{Drupal}都能很好的支持Markdown。完全采用Markdown编辑器的博客平台有\href{https://baike.baidu.com/item/Ghost/17013737}{Ghost}和\href{https://baike.baidu.com/item/Typecho}{Typecho}等。
+
+用于编写说明文档，以``README.md''的文件名保存在软件的目录下面。
+
+Markdown可以快速转化为演讲PPT、Word产品文档甚至是用非常少量的代码完成最小可用\href{https://baike.baidu.com/item/原型/4126307}{原型}。
+
+\begin{itemize}
+\item
+  发展历程
+\end{itemize}
+
+John
+Gruber在2004年创造了Markdown语言，在语法上有很大一部分是跟\href{https://baike.baidu.com/item/亚伦·斯沃茨/4027108}{亚伦·斯沃茨}（Aaron
+Swartz）共同合作的。这个语言的目的是希望大家使用``易于阅读、易于撰写的纯文字格式，并选择性的转换成有效的XHTML（或是HTML）''。
+其中最重要的设计是可读性，也就是说这个语言应该要能直接在字面上的被阅读，而不用被一些格式化指令标记（像是RTF与HTML）。
+因此，它是现行电子邮件标记格式的惯例，虽然它也借鉴了很多早期的标记语言，如：Setext、Texile、reStructuredText。
+
+\textbf{标准化}
+
+Markdown已经成为典型的转换为HTML的非正式规范和参考实现。随着时间的推移，出现了许多Markdown实现。人们开发这些主要是由于在基本语法之上需要额外的功能
+-
+例如表格，脚注，定义列表（技术上的HTML描述列表）和HTML块内的Markdown。其中一些行为偏离了最开始的参考实现。与此同时，非正式规范中的一些含糊不清引起了人们的注意
+。这些问题促使Markdown解析器的一些开发人员努力实现标准化。
+
+2016年3月发布了RFC 7763和RFC 7764。RFC 7763 从原始变体引入了MIME类型
+text/markdown。RFC 7764讨论并注册了MultiMarkdown、GitHub Flavored
+Markdown (GFM)、Pandoc、CommonMark及Markdown等变体。
+
+\textbf{CommonMark}
+
+从2012年开始，包括Jeff Atwood和John
+MacFarlane在内的一群人启动了标准化工作。
+一个社区网站旨在记录可用于文档作者和开发人员的各种工具和资源，以及各种markdown实现的实现者。
+{[}5{]}
+2014年9月，Gruber反对在这一工作中继续使用``Markdown''这个名字，其被更名为CommonMark。CommonMark发布了规范、参考实现和测试包的几个版本，并计划在2018年宣布最终的1.0规范和测试包。
+
+\textbf{GFM}
+
+2017年，GitHub发布了基于CommonMark的GitHub Flavored
+Markdown（GFM）的正式规范。 {[}8{]}
+除了表格、删除线、自动链接和任务列表被GitHub规范作为扩展添加之外，它遵循CommonMark规范。
+{[}9{]} GitHub还相应地更改了其站点上使用的解析器，这要求更改某些文档 -
+例如，GFM要求创建标题的哈希符号由空格字符分隔。
+
+\textbf{Markdown Extra}
+
+Markdown
+Extra是一种轻量级标记语言，基于在PHP（最初）、Python和Ruby中实现的Markdown。它添加了普通Markdown语法不具备的功能。内容管理系统支持Markdown
+Extra，例如Drupal，TYPO3和MediaWiki。
+
+它为Markdown添加了以下功能：
+
+\begin{itemize}
+\item
+  HTML块内的markdown标记
+\item
+  具有id / class属性的元素
+\item
+  围栏代码块
+\item
+  表格
+\item
+  定义清单
+\item
+  脚注
+\item
+  缩写
+\end{itemize}
+
+Markdown是一种简单的\href{https://baike.baidu.com/item/格式化文本/15665798}{格式化文本}的方法，在任何设备上看起来都很棒。它不会做任何花哨的事情，比如改变字体大小、颜色或类型------只是基本的，使用你已经知道的键盘符号。
+
+\begin{itemize}
+\item
+  语法
+\end{itemize}
+
+\textbf{常用语法}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+\textbf{Markdown语法} & \textbf{详解} & \textbf{快捷键} &
+\textbf{效果} \\
+\midrule
+\endhead
+\emph{斜体} & 无 & Ctrl/⌘ + I & \emph{斜体} \\
+\textbf{粗体} & 无 & Ctrl/⌘ + B & \textbf{粗体} \\
+\# 一级标题 & "\#"后需加空格 & 无 & 无 \\
+\#\# 二级标题 & 以此类推三级标题为三个``\#'' & 无 & 无 \\
+\href{http://a}{链接} & ``{[} {]}''间为显示的超文本 & Ctrl/⌘ + K &
+\href{https://baike.baidu.com/item/链接/2665501}{链接} \\
+& ``{[} {]}''间为图片名 & Ctrl/⌘ + Shift + I &
+\href{https://baike.baidu.com/pic/markdown/3245829/0/d009b3de9c82d158ccbf98bc1b430ed8bc3eb135e42e?fr=lemma\&ct=single}{\includegraphics{https://bkimg.cdn.bcebos.com/pic/d009b3de9c82d158ccbf98bc1b430ed8bc3eb135e42e?x-bce-process=image/resize,m_lfit,w_440,limit_1/format,f_auto}} \\
+`` ＞ ''引用 & `` ＞ ''后需加空格 & Ctrl + Q & 无 \\
+* 无序列表 & 无 & Ctrl + L & 无 \\
+1. 有序列表 & 无 & 无 & 无 \\
+-\/-\/- & 水平分割线 & 无 & ------------ \\
+\texttt{内联代码} 的使用 & 无 & Ctrl/⌘ + Shift + K & 无 \\
+\texttt{代码块} & 无 & 无 & 无 \\
+颜色代码 & 无 & 无 & 无 \\
+\emph{\textbf{斜体+粗体}} & 无 & 无 & *\textbf{斜体+粗体*} \\
+居中格式 & 文字 & 无 & 文字 \\
+自动换行 & 例：1234567890 & Enter & 1234567890 \\
+输入框 & 例：1234 & 无 & 输入框内的1234 \\
+颜色第二种 & 文字 & 无 & 无 \\
+文字大小 & 文字 & 无 & 无 \\
+字体 & 无 & 无 & 无 \\
+\bottomrule
+\end{longtable}
+
+\textbf{LaTex公式语法}
+
+\href{https://baike.baidu.com/pic/markdown/3245829/1363805638/ca1349540923dd54564e7c084a40a4de9c82d158e233?fr=lemma\&ct=cover}{\includegraphics{https://bkimg.cdn.bcebos.com/pic/ca1349540923dd54564e7c084a40a4de9c82d158e233?x-bce-process=image/resize,m_lfit,w_220,limit_1/format,f_auto}LaTex公式语法(3张)}Markdown亦可用于编辑\href{https://baike.baidu.com/item/LaTex/1212106}{LaTex}公式，可跨平台编辑、跨环境显示。
+
+\begin{itemize}
+\item
+  编辑器
+\end{itemize}
+
+\textbf{Windows}
+
+Typora、Simplenote、Laverna、Boostnote、Inkdrop、Cmd
+Markdown、\href{https://baike.baidu.com/item/Github/10145341}{Github}、马克飞象、Yu
+Writer、看云、\href{https://baike.baidu.com/item/有道云笔记/3689874}{有道云笔记}、\href{https://baike.baidu.com/item/为知笔记/552096}{为知笔记}、蚂蚁笔记
+
+\textbf{MacOS}
+
+Typora、Typed、Ulysses、Falcon
+
+\textbf{Linux}
+
+Typora、Atom、GNU Emacs、Remarkable、Haroopad、ReText、UberWriter、Mark
+My Words
+
+\textbf{Chromium内核浏览器插件}
+
+Markdown Preview、Markdown Here
+
+\textbf{Android}
+
+Draft、JotterPad X、坚果云Markdown
+
+\textbf{iOS}
+
+Byword、simplenote、坚果云Markdown
+
+RStudio是一个用于R的IDE，为称为sundown的Markdown变体提供了C++包装函数
+
+\hypertarget{ux73afux5883ux7684ux63cfux8ff0}{%
+\subsection{环境的描述}\label{ux73afux5883ux7684ux63cfux8ff0}}
+
+Linux的环境，Windows的环境，maven进行环境部署。
+
+\hypertarget{linux}{%
+\subsubsection{Linux}\label{linux}}
+
+\begin{itemize}
+\item
+  Linux
+\end{itemize}
+
+Linux，全称GNU/Linux，是一种免费使用和自由传播的\href{https://baike.baidu.com/item/类UNIX/9032872}{类UNIX}操作系统，其内核由\href{https://baike.baidu.com/item/林纳斯·本纳第克特·托瓦兹/1034429}{林纳斯·本纳第克特·托瓦兹}于1991年10月5日首次发布，它主要受到\href{https://baike.baidu.com/item/Minix/7106045}{Minix}和Unix思想的启发，是一个基于\href{https://baike.baidu.com/item/POSIX}{POSIX}的多用户、\href{https://baike.baidu.com/item/多任务/1011764}{多任务}、支持\href{https://baike.baidu.com/item/多线程/1190404}{多线程}和多\href{https://baike.baidu.com/item/CPU}{CPU}的操作系统。它能运行主要的\href{https://baike.baidu.com/item/Unix/219943}{Unix}工具软件、应用程序和网络协议。它支持\href{https://baike.baidu.com/item/32位/5812218}{32位}和\href{https://baike.baidu.com/item/64位}{64位}硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。Linux有上百种不同的发行版，如基于社区开发的\href{https://baike.baidu.com/item/debian/748667}{debian}、\href{https://baike.baidu.com/item/archlinux/10857530}{archlinux}，和基于商业开发的\href{https://baike.baidu.com/item/Red\%20Hat\%20Enterprise\%20Linux/10770503}{Red
+Hat Enterprise
+Linux}、\href{https://baike.baidu.com/item/SUSE/60409}{SUSE}、\href{https://baike.baidu.com/item/Oracle\%20Linux/6876458}{Oracle
+Linux}等。
+
+2021年6月，根据Linux 5.14刚刚进入合并队列的char-misc-next提交，Linux
+5.14正式移除了RAW驱动。
+
+\begin{itemize}
+\item
+  特点
+\end{itemize}
+
+Linux，全称GNU/Linux，是一套免费使用和自由传播的类Unix操作系统，是一个基于POSIX的多用户、多任务、支持多线程和多CPU的操作系统。伴随着互联网的发展，Linux得到了来自全世界软件爱好者、组织、公司的支持。它除了在服务器方面保持着强劲的发展势头以外，在个人电脑、嵌入式系统上都有着长足的进步。使用者不仅可以直观地获取该操作系统的实现机制，而且可以根据自身的需要来修改完善Linux，使其最大化地适应用户的需要。
+
+Linux不仅系统性能稳定，而且是开源软件。其核心防火墙组件性能高效、配置简单，保证了系统的安全。在很多企业网络中，为了追求速度和安全，Linux不仅仅是被网络运维人员当作服务器使用，甚至当作网络防火墙，这是Linux的一大亮点。
+
+Linux具有开放源码、没有版权、技术社区用户多等特点，开放源码使得用户可以自由裁剪，灵活性高，功能强大，成本低。尤其系统中内嵌网络协议栈，经过适当的配置就可实现路由器的功能。这些特点使得Linux成为开发路由交换设备的理想开发平台。
+
+\begin{itemize}
+\item
+  主要特性
+\end{itemize}
+
+\textbf{基本思想}
+
+Linux的基本思想有两点：第一，一切都是文件；第二，每个文件都有确定的用途。其中第一条详细来讲就是系统中的所有都归结为一个文件，包括命令、硬件和软件设备、操作系统、进程等等对于操作系统内核而言，都被视为拥有各自特性或类型的文件。至于说Linux是基于Unix的，很大程度上也是因为这两者的基本思想十分相近。
+
+\textbf{完全免费}
+
+Linux是一款免费的操作系统，用户可以通过网络或其他途径免费获得，并可以任意修改其源代码。这是其他的操作系统所做不到的。正是由于这一点，来自全世界的无数程序员参与了Linux的修改、编写工作，程序员可以根据自己的兴趣和灵感对其进行改变，这让Linux吸收了无数程序员的精华，不断壮大。
+
+\textbf{完全兼容POSIX1.0标准}
+
+这使得可以在Linux下通过相应的模拟器运行常见的DOS、Windows的程序。这为用户从Windows转到Linux奠定了基础。许多用户在考虑使用Linux时，就想到以前在Windows下常见的程序是否能正常运行，这一点就消除了他们的疑虑。
+
+\textbf{多用户、多任务}
+
+Linux支持多用户，各个用户对于自己的文件设备有自己特殊的权利，保证了各用户之间互不影响。多任务则是现代电脑最主要的一个特点，Linux可以使多个程序同时并独立地运行。
+
+\textbf{良好的界面}
+
+Linux同时具有字符界面和图形界面。在字符界面用户可以通过键盘输入相应的指令来进行操作。它同时也提供了类似Windows图形界面的X-Window系统，用户可以使用鼠标对其进行操作。在X-Window环境中就和在Windows中相似，可以说是一个Linux版的Windows。
+
+\textbf{支持多种平台}
+
+Linux可以运行在多种硬件平台上，如具有x86、680x0、SPARC、Alpha等处理器的平台。此外Linux还是一种嵌入式操作系统，可以运行在掌上电脑、机顶盒或游戏机上。2001年1月份发布的Linux
+2.4版内核已经能够完全支持Intel64位芯片架构。同时Linux也支持多处理器技术。多个处理器同时工作，使系统性能大大提高。
+
+\begin{itemize}
+\item
+  优点
+\end{itemize}
+
+1.Linux由众多微内核组成，其源代码完全开源；
+
+2.Linux继承了Unix的特性，具有非常强大的网络功能，其支持所有的因特网协议，包括TCP/IPv4、TCP/IPv6和链路层拓扑程序等，且可以利用Unix的网络特性开发出新的协议栈；
+
+3.Linux系统工具链完整，简单操作就可以配置出合适的开发环境，可以简化开发过程，减少开发中仿真工具的障碍，使系统具有较强的移植性；
+
+\hypertarget{windows}{%
+\subsubsection{Windows}\label{windows}}
+
+\begin{itemize}
+\item
+  Windows操作系统
+\end{itemize}
+
+Windows操作系统，是由美国微软公司（Microsoft）研发的操作系统，问世于1985年。起初是MS-DOS模拟环境，后续由于微软对其进行不断更新升级，提升易用性，使Windows成为了应用最广泛的操作系统。
+
+Windows采用了图形用户界面（GUI），比起从前的MS-DOS需要输入指令使用的方式更为人性化。随着计算机硬件和软件的不断升级，Windows也在不断升级，从架构的16位、32位再到64位，系统版本从最初的Windows
+1.0到大家熟知的Windows 95、Windows 98、Windows 2000、Windows XP、Windows
+Vista、Windows 7、Windows 8、Windows 8.1、Windows 10、Windows
+11和Windows
+Server服务器企业级操作系统，微软一直在致力于Windows操作系统的开发和完善。
+
+\begin{itemize}
+\item
+  系统简介
+\end{itemize}
+
+微软（Microsoft）公司从1983年开始研发Windows系统，最初的研发目标是在MS-DOS的基础上提供一个多任务的图形用户界面。第一个版本的Windows
+1.0于1985年问世，它是一个具有图形用户界面的系统软件。1987年推出了Windows
+2.0，最明显的变化是采用了相互叠盖的多窗口界面形式。但这一切都没有引起人们的关注。直到1990年微软推出Windows
+3.0成为一个重要的里程碑，它以压倒性的商业成功确定了Windows系统在PC领域的垄断地位，现今流行的Windows窗口界面的基本形式也是从Windows3.0开始基本确定的。1992年主要针对Windows
+3.0的缺点推出了Windows
+3.1，为程序开发提供了功能强大的窗口控制能力，使Windows和在其环境下运行的应用程序具有了风格统一、操纵灵活、使用简便的用户界面。Windows3.1在内存管理上也取得了突破性进展。它使应用程序可以超过常规内存空间限制，不仅支持16MB内存寻址，而且在80386及以上的硬件配置上通过虚拟存储方式可以支持几倍于实际物理存储器大小的地址空间。Windows
+3.1还提供了一定程度的网络支持、多媒体管理、超文本形式的联机帮助设施等，对应用程序的开发有很大影响
+。
+
+众所周知，Windows在个人计算机领域是普及度很高的操作系统。当计算机的体积不断变小，发展成掌上电脑的形态时，Windows系统自然也延伸到这类便携式产品的领域。然而，掌上电脑在续航能力、显示屏幕、输入界面等方面与普通的PC还是有很大差别的，考虑功耗和用户使用习惯等方面的因素，Windows系统针对手持设备的特点进行了多次调整和优化，先后形成了Windows
+CE，Windows Mobile，Windows Phone等移动版本的系统。
+
+\begin{itemize}
+\item
+  系统特点
+\end{itemize}
+
+\textbf{1、Windows操作系统的人机操作性优异。}
+
+操作系统是人使用计算机硬件沟通的平台，没有良好的人机操作性，就难以吸引广大用户使用。手机领域，诺基亚手机能够占据手机市场半壁江山，手机操作系统互动性良好是其成功的重要因素之一，而其迅速的衰败也是因为操作系统的落伍。Windows操作系统能够作为个人计算机的主流操作系统，其优异的人机操作性是重要因素。Windows操作系统界面友好，窗口制作优美，操作动作易学，多代系统之间有良好的传承，计算机资源管理效率较高，效果较好
+。
+
+\textbf{2、Windows操作系统支持的应用软件较多。}
+
+Windows操作系统作为优秀的操作系统，由开发操作系统的微软公司控制接口和设计，公开标准，因此，有大量商业公司在该操作系统上开发商业软件。Windows操作系统的大量应用软件为客户提供了方便。这些应用软件门类全，功能完善，用户体验性好。譬如，Windows操作系统有大量的多媒体应用软件，搜集管理多媒体资源，客户只需要使用这些基于系统开发出来商业软件就可以享受多媒体带来的快乐
+。
+
+\textbf{3、Windows操作系统对硬件支持良好。}
+
+硬件的良好适应性是Windows操作系统的有一个重要特点。Windows操作系统支持多种硬件平台对于硬件生产厂商宽泛、自由的开发环境，激励了这些硬件公司选择与Windows操作系统相匹配，也激励了Windows操作系统不断完善和改进，同时，硬件技术的提升，也为操作系统功能拓展提供了支撑。另外，该操作系统支持多种硬件的热插拔，方便了用户的使用，也受到了广大用户的欢迎
+。
+
+\begin{itemize}
+\item
+  系统版本
+\end{itemize}
+
+Windows
+1.0是微软公司第一次对个人电脑操作平台进行用户图形界面的尝试。Windows
+1.0基于MS-DOS操作系统。Microsoft Windows
+1.0是Windows系列的第一个产品，于1985年开始发行 {[}6{]}
+。当时很多人认为Windows
+1.0只是一个低劣的产品。当时最好的GUI电脑平台是GEM。另外一个选择是Desqview/X
+{[}6{]} 。Windows
+1.0中鼠标作用得到特别的重视，用户可以通过点击鼠标完成大部分的操作。Windows
+1.0
+自带了一些简单的应用程序，包括日历、记事本、计算器等等。总之，刚诞生的Windows
+1.0，总会让人感到它像是一个PDA，甚至可能功能还赶不上PDA，不过这在Windows
+1.0诞生时已经相当吸引人了。Windows
+1.0的另外一个显著特点就是允许用户同时执行多个程序，并在各个程序之间进行切换，这对于DOS来说是不可想象的
+{[}6{]} 。Windows 1.0
+可以显示256种颜色，窗口可以任意缩放，当窗口最小化的时候桌面上会有专门的空间放置这些窗口（其实就是任务栏）。
+在Windows 1.0中已经出现了控制面板（Control
+Panel），对驱动程序、虚拟内存有了明确的定义，不过功能非常有限。
+
+\hypertarget{maven}{%
+\subsubsection{maven}\label{maven}}
+
+\begin{itemize}
+\item
+  maven
+\end{itemize}
+
+Maven项目对象模型(POM)，可以通过一小段描述信息来管理项目的构建，报告和文档的项目管理工具软件。
+
+Maven 除了以程序构建能力为特色之外，还提供高级项目管理工具。由于 Maven
+的缺省构建规则有较高的可重用性，所以常常用两三行 Maven
+构建脚本就可以构建简单的项目。由于 Maven 的面向项目的方法，许多 Apache
+Jakarta 项目发文时使用 Maven，而且公司项目采用 Maven 的比例在持续增长。
+
+Maven这个单词来自于意第绪语（犹太语），意为知识的积累，最初在Jakata
+Turbine项目中用来简化构建过程。当时有一些项目（有各自Ant
+build文件），仅有细微的差别，而JAR文件都由CVS来维护。于是希望有一种标准化的方式构建项目，一个清晰的方式定义项目的组成，一个容易的方式发布项目的信息，以及一种简单的方式在多个项目中共享JARs。
+
+\begin{itemize}
+\item
+  管理特点
+\end{itemize}
+
+那么，Maven 和 Ant
+有什么不同呢？在回答这个问题以前，首先要强调一点：Maven 和 Ant
+针对构建问题的两个不同方面。Ant 为 Java
+技术开发项目提供跨平台构建任务。Maven 本身描述项目的高级方面，它从 Ant
+借用了绝大多数构建任务。因此，由于 Maven 和
+Ant代表两个差异很大的工具，所以接下来只说明这两个工具的等同组件之间的区别，如表
+1 所示。
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+& \textbf{Maven} & \textbf{Ant} \\
+\midrule
+\endhead
+标准构建文件 & project.xml 和 maven.xml & build.xml \\
+特性处理顺序 &
+\$\{maven.home\}/bin/driver.properties\$\{project.home\}/project.properties\$\{project.home\}/build.properties\$\{user.home\}/build.properties通过
+-D 命令行选项定义的系统特性\textbf{最后一个}定义起决定作用。 & 通过 -D
+命令行选项定义的系统特性由
+任务装入的特性\textbf{第一个}定义最先被处理。 \\
+构建规则 & 构建规则更为动态（类似于编程语言）；它们是基于 Jelly 的可执行
+XML。 & 构建规则或多或少是静态的，除非使用任务 \\
+扩展语言 & 插件是用 Jelly（XML）编写的。 & 插件是用 Java 语言编写的。 \\
+构建规则可扩展性 & 通过定义 和 使构建 goal 可扩展。 &
+构建规则不易扩展；可通过使用 任务模拟 和 所起的作用。 \\
+\bottomrule
+\end{longtable}
+
+Apache
+Maven是一个（特别是Java编程）项目管理及自动构建工具，由Apache软件基金会所提供。基于项目对象模型（缩写：POM）概念，Maven利用一个中央信息片断能管理一个项目的构建、报告和文档等步骤。
+
+它包含了一个项目对象模型 (Project Object
+Model)，一组标准集合，一个项目生命周期项目生命周期)(Project
+Lifecycle)，一个依赖管理系统(Dependency Management
+System)，和用来运行定义在生命周期阶段(phase)中插件(plugin)目标(goal)的逻辑。当你使用Maven的时候，你用一个明确定义的项目对象模型来描述你的项目，然后Maven可以应用横切的逻辑，这些逻辑来自一组共享的（或者自定义的）插件。
+
+Maven 有一个生命周期，当你运行 mvn install 的时候被调用。这条命令告诉
+Maven
+执行一系列的有序的步骤，直到到达你指定的生命周期。遍历生命周期旅途中的一个影响就是，Maven
+运行了许多默认的插件目标，这些目标完成了像编译和创建一个 JAR
+文件这样的工作。
+
+此外，Maven能够很方便的帮你管理项目报告，生成站点，管理JAR文件，等等。
+
+\begin{itemize}
+\item
+  常用命令
+\end{itemize}
+
+mvn archetype:generate 创建Maven项目
+
+mvn compile 编译源代码
+
+mvn deploy 发布项目
+
+mvn test-compile 编译测试源代码
+
+mvn test 运行应用程序中的单元测试
+
+mvn site 生成项目相关信息的网站
+
+mvn clean 清除项目目录中的生成结果
+
+mvn package 根据项目生成的jar
+
+mvn install 在本地Repository中安装jar
+
+mvn eclipse:eclipse 生成eclipse项目文件
+
+mvnjetty:run 启动jetty服务
+
+mvntomcat:run 启动tomcat服务
+
+mvn clean package
+-Dmaven.test.skip=true:清除以前的包后重新打包，跳过测试类
+
+\begin{itemize}
+\item
+  生命周期
+\end{itemize}
+
+Maven的生命周期是为了对所有的构建过程进行了抽象了，便于统一。
+
+\textbf{clean}(清理)
+
+cleanup(清理所有)
+
+此生命周期旨在给工程做清理工作，它主要包含以下阶段：
+
+\textbf{pre-clean} - 执行项目清理前所需要的工作。
+
+\textbf{clean} - 清理上一次build项目生成的文件。
+
+\textbf{post-clean} - 执行完成项目清理所需的工作.
+
+default(默认)
+
+\textbf{validate} - 验证项目是否正确且所有必要的信息都可用。
+
+\textbf{initialize} - 初始化构建工作，如：设置参数，创建目录等。
+
+\textbf{generate-sources} - 为包含在编译范围内的代码生成源代码.
+
+\textbf{process-sources} - 处理源代码, 如过滤值.
+
+\textbf{generate-resources} -
+
+\textbf{process-resources} - 复制并处理资源文件，至目标目录，准备打包。
+
+\textbf{compile} - 编译项目中的源代码.
+
+\textbf{process-classes} - 为编译生成的文件做后期工作,
+例如做Java类的字节码增强.
+
+\textbf{generate-test-sources} - 为编译内容生成测试源代码.
+
+\textbf{process-test-sources} - 处理测试源代码。
+
+\textbf{generate-test-resources} -
+
+\textbf{process-test-resources} - 复制并处理资源文件，至目标测试目录。
+
+\textbf{test-compile} -
+将需测试源代码编译到路径。一般来说，是编译/src/test/java目录下的java文件至目标输出的测试classpath目录中。
+
+\textbf{process-test-classes} -
+
+\textbf{test} -
+使用合适的单元测试框架运行测试。这些测试代码不会被打包或部署。
+
+\textbf{prepare-package} -
+
+\textbf{package} - 接受编译好的代码，打包成可发布的格式，如 JAR 。
+
+\textbf{pre-integration-test} -
+
+\textbf{integration-test} - 按需求将发布包部署到运行环境。
+
+\textbf{post-integration-test} -
+
+\textbf{verify} -
+
+\textbf{install} -将包安装到本地仓库，给其他本地引用提供依赖。
+
+\textbf{deploy}
+-完成集成和发布工作，将最终包复制到远程仓库以便分享给其他开发人员。
+
+site(站点)
+
+\textbf{pre-site} - 执行一些生成项目站点前的准备工作。
+
+\textbf{site} - 生成项目站点的文档。
+
+\textbf{post-site} - 执行需完成站点生成的工作，如站点部署的准备工作。
+
+\textbf{site-deploy} - 向制定的web服务器部署站点生成文件。
+
+\hypertarget{ux7f16ux7a0bux8bedux8a00ux7684ux63cfux8ff0}{%
+\subsection{编程语言的描述}\label{ux7f16ux7a0bux8bedux8a00ux7684ux63cfux8ff0}}
+
+\hypertarget{java}{%
+\subsubsection{Java}\label{java}}
+
+\begin{itemize}
+\item
+  Java
+\end{itemize}
+
+Java是一门\href{https://baike.baidu.com/item/面向对象}{面向对象}的编程语言，不仅吸收了\href{https://baike.baidu.com/item/C\%2B\%2B}{C++}语言的各种优点，还摒弃了C++里难以理解的多继承、\href{https://baike.baidu.com/item/指针/2878304}{指针}等概念，因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程。
+
+Java具有简单性、面向对象、\href{https://baike.baidu.com/item/分布式/19276232}{分布式}、\href{https://baike.baidu.com/item/健壮性/4430133}{健壮性}、\href{https://baike.baidu.com/item/安全性/7664678}{安全性}、平台独立与可移植性、\href{https://baike.baidu.com/item/多线程/1190404}{多线程}、动态性等特点。Java可以编写\href{https://baike.baidu.com/item/桌面应用程序/2331979}{桌面应用程序}、Web应用程序、\href{https://baike.baidu.com/item/分布式系统/4905336}{分布式系统}和\href{https://baike.baidu.com/item/嵌入式系统/186978}{嵌入式系统}应用程序等。
+
+\begin{itemize}
+\item
+  编程开发
+\end{itemize}
+
+\href{https://baike.baidu.com/item/JDK/1011}{JDK}\emph{（Java
+Development
+Kit）}称为Java开发包或Java开发工具，是一个编写Java的Applet小程序和应用程序的程序开发环境。JDK是整个Java的核心，包括了Java运行环境\emph{（Java
+Runtime Environment）}，一些Java工具和Java的核心类库\emph{（Java
+API）}。不论什么Java应用服务器实质都是内置了某个版本的JDK。主流的JDK是Sun公司发布的JDK，除了Sun之外，还有很多公司和组织都开发了自己的JDK，例如，IBM公司开发的JDK，BEA公司的Jrocket，还有GNU组织开发的JDK。
+
+另外，可以把\href{https://baike.baidu.com/item/Java\%20API}{Java
+API}类库中的Java SE
+API子集和Java虚拟机这两部分统称为\href{https://baike.baidu.com/item/JRE}{JRE}\emph{（JAVA
+Runtime
+Environment）}，\href{https://baike.baidu.com/item/JRE}{JRE}是支持Java程序运行的标准环境
+。
+
+JRE是个运行环境，JDK是个开发环境。因此写Java程序的时候需要JDK，而运行Java程序的时候就需要JRE。而JDK里面已经包含了JRE，因此只要安装了JDK，就可以编辑Java程序，也可以正常运行Java程序。但由于JDK包含了许多与运行无关的内容，占用的空间较大，因此运行普通的Java程序无须安装JDK，而只需要安装JRE即可。
+
+\begin{itemize}
+\item
+  语言特点
+\end{itemize}
+
+\textbf{1.简单性}
+
+Java看起来设计得很像\href{https://baike.baidu.com/item/C\%2B\%2B}{C++}，但是为了使语言小和容易熟悉，设计者们把C++语言中许多可用的特征去掉了，这些特征是一般程序员很少使用的。例如，Java不支持\href{https://baike.baidu.com/item/goto语句/7603004}{goto语句}，代之以提供\href{https://baike.baidu.com/item/break/405784}{break}和\href{https://baike.baidu.com/item/continue/3009735}{continue}语句以及异常处理。Java还剔除了C++的操作符过载\emph{（\textbf{\href{https://baike.baidu.com/item/overload/5090058}{overload}}）}和多继承特征，并且不使用主文件，免去了预处理程序。因为Java没有结构，数组和串都是对象，所以不需要指针。Java能够自动处理对象的引用和间接引用，实现自动的无用单元收集，使用户不必为存储管理问题烦恼，能更多的时间和精力花在研发上。
+
+\textbf{2.面向对象}
+
+Java是一个面向对象的语言。对程序员来说，这意味着要注意其中的数据和操纵数据的方法\emph{（method）}，而不是严格地用过程来思考。在一个面向对象的系统中，类\emph{（\textbf{\href{https://baike.baidu.com/item/class/12502737}{class}}）}是数据和操作数据的方法的集合。数据和方法一起描述对象\emph{（object）}的状态和行为。每一对象是其状态和行为的封装。类是按一定体系和层次安排的，使得子类可以从超类继承行为。在这个类层次体系中有一个根类，它是具有一般行为的类。Java程序是用类来组织的。
+
+Java还包括一个类的扩展集合，分别组成各种程序包\emph{（\textbf{\href{https://baike.baidu.com/item/Package}{Package}}）}，用户可以在自己的程序中使用。例如，Java提供产生图形用户接口部件的类\emph{（\textbf{\href{https://baike.baidu.com/item/java.awt}{java.awt}}包）}，这里awt是抽象窗口工具集\emph{（abstract
+windowing
+toolkit）}的缩写，处理输入输出的类\emph{（\textbf{\href{https://baike.baidu.com/item/java.io}{java.io}}包）}和支持网络功能的类\emph{（\textbf{\href{https://baike.baidu.com/item/java.net}{java.net}}包）}。
+
+\textbf{3.分布性}
+
+Java设计成支持在网络上应用，它是分布式语言。Java既支持各种层次的网络连接，又以Socket类支持可靠的流\emph{（\textbf{\href{https://baike.baidu.com/item/stream}{stream}}）}网络连接，所以用户可以产生分布式的客户机和服务器。
+
+网络变成软件应用的分布运载工具。Java程序只要编写一次，就可到处运行。
+
+\textbf{4.编译和解释性}
+
+Java编译程序生成字节码\emph{（byte-code）}，而不是通常的机器码。Java字节码提供对体系结构中性的目标文件格式，代码设计成可有效地传送程序到多个平台。Java程序可以在任何实现了Java解释程序和运行系统\emph{（run-time
+system）}的系统上运行。
+
+在一个解释性的环境中，程序开发的标准``链接''阶段大大消失了。如果说Java还有一个链接阶段，它只是把新类装进环境的过程，它是增量式的、轻量级的过程。因此，Java支持快速原型和容易试验，它将导致快速程序开发。这是一个与传统的、耗时的``编译、链接和测试''形成鲜明对比的精巧的开发过程。
+
+\textbf{5.稳健性}
+
+Java原来是用作编写消费类家用电子产品软件的语言，所以它是被设计成写高可靠和稳健软件的。Java消除了某些编程错误，使得用它写可靠软件相当容易。
+
+Java是一个强类型语言，它允许扩展编译时检查潜在类型不匹配问题的功能。Java要求显式的方法声明，它不支持C风格的隐式声明。这些严格的要求保证编译程序能捕捉调用错误，这就导致更可靠的程序。
+
+可靠性方面最重要的增强之一是Java的存储模型。Java不支持指针，它消除重写存储和讹误数据的可能性。类似地，Java自动的``无用单元收集''预防存储漏泄和其它有关动态存储分配和解除分配的有害错误。Java解释程序也执行许多运行时的检查，诸如验证所有数组和串访问是否在界限之内。
+
+异常处理是Java中使得程序更稳健的另一个特征。异常是某种类似于错误的异常条件出现的信号。使用try/catch/finally语句，程序员可以找到出错的处理代码，这就简化了出错处理和恢复的任务。
+
+\textbf{6.安全性}
+
+Java的存储分配模型是它防御恶意代码的主要方法之一。Java没有指针，所以程序员不能得到隐蔽起来的内幕和伪造指针去指向存储器。更重要的是，Java编译程序不处理存储安排决策，所以程序员不能通过查看声明去猜测类的实际存储安排。编译的Java代码中的存储引用在运行时由Java解释程序决定实际存储地址。
+
+Java运行系统使用字节码验证过程来保证装载到网络上的代码不违背任何Java语言限制。这个安全机制部分包括类如何从网上装载。例如，装载的类是放在分开的名字空间而不是局部类，预防恶意的小应用程序用它自己的版本来代替标准Java类。
+
+\textbf{7.可移植性}
+
+Java使得语言声明不依赖于实现的方面。例如，Java显式说明每个基本数据类型的大小和它的运算行为\emph{（这些数据类型由Java语法描述）}。
+
+Java环境本身对新的硬件平台和操作系统是可移植的。Java编译程序也用Java编写，而Java运行系统用ANSIC语言编写。
+
+\textbf{8.高性能}
+
+Java是一种先编译后解释的语言，所以它不如全编译性语言快。但是有些情况下性能是很要紧的，为了支持这些情况，Java设计者制作了``及时''编译程序，它能在运行时把Java字节码翻译成特定\href{https://baike.baidu.com/item/CPU}{CPU}\emph{（中央处理器）}的机器代码，也就是实现全编译了。
+
+Java字节码格式设计时考虑到这些``及时''编译程序的需要，所以生成机器代码的过程相当简单，它能产生相当好的代码。
+
+\textbf{9.多线程性}
+
+Java是多线程语言，它提供支持多线程的执行\emph{（也称为轻便过程）}，能处理不同任务，使具有线索的程序设计很容易。Java的lang包提供一个\href{https://baike.baidu.com/item/Thread/5156974}{Thread}类，它支持开始线索、运行线索、停止线索和检查线索状态的方法。
+
+Java的线索支持也包括一组同步原语。这些原语是基于监督程序和条件变量风范，由C.A.R.Haore开发的广泛使用的同步化方案。用关键词\href{https://baike.baidu.com/item/synchronized}{synchronized}，程序员可以说明某些方法在一个类中不能并发地运行。这些方法在监督程序控制之下，确保变量维持在一个一致的状态。
+
+\textbf{10.动态性}
+
+Java语言设计成适应于变化的环境，它是一个动态的语言。例如，Java中的类是根据需要载入的，甚至有些是通过网络获取的。
+
+\begin{itemize}
+\item
+  工作原理
+
+  由四方面组成：
+
+  （1）Java编程语言
+
+  （2）Java类文件格式
+
+  （3）Java虚拟机
+
+  （4）Java应用程序接口
+
+  当编辑并运行一个Java程序时，需要同时涉及到这四种方面。使用文字编辑软件\emph{（例如记事、写字板、UltraEdit等或集成开发环境在Java源文件中定义不同的类
+  {[}26{]} ，通过调用类}（这些类实现了Java
+  API）中的方法来访问资源系统，把源文件编译生成一种二进制中间码，存储在class文件中，然后再通过运行与操作系统平台环境相对应的Java虚拟机来运行class文件，执行编译产生的字节码，调用class文件中实现的方法来满足程序的Java
+  API调用 。
+\end{itemize}
+
+\hypertarget{bootstrap}{%
+\subsubsection{bootstrap}\label{bootstrap}}
+
+Bootstrap是美国Twitter公司的设计师Mark Otto和Jacob
+Thornton合作基于HTML、CSS、JavaScript
+开发的简洁、直观、强悍的前端开发框架，使得 Web
+开发更加快捷。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。Bootstrap一经推出后颇受欢迎，一直是GitHub上的热门开源项目，包括NASA的MSNBC（微软全国广播公司）的Breaking
+News都使用了该项目。
+国内一些移动开发者较为熟悉的框架，如WeX5前端开源框架等，也是基于Bootstrap源码进行性能优化而来。
+
+\hypertarget{ux6570ux636eux5e93}{%
+\subsection{数据库}\label{ux6570ux636eux5e93}}
+
+MySQL 是最流行的关系型数据库管理系统，在 WEB 应用方面 MySQL 是最好的
+RDBMS(Relational Database Management
+System：关系数据库管理系统)应用软件之一。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  什么是数据库
+\end{enumerate}
+
+数据库（Database）是按照数据结构来组织、存储和管理数据的仓库。
+
+每个数据库都有一个或多个不同的 API
+用于创建，访问，管理，搜索和复制所保存的数据。
+
+我们也可以将数据存储在文件中，但是在文件中读写数据速度相对较慢。
+
+所以，现在我们使用关系型数据库管理系统（RDBMS）来存储和管理大数据量。所谓的关系型数据库，是建立在关系模型基础上的数据库，借助于集合代数等数学概念和方法来处理数据库中的数据。
+
+RDBMS 即关系数据库管理系统(Relational Database Management
+System)的特点：
+
+\begin{itemize}
+\item
+  1.数据以表格的形式出现
+\item
+  2.每行为各种记录名称
+\item
+  3.每列为记录名称所对应的数据域
+\item
+  4.许多的行和列组成一张表单
+\item
+  5.若干的表单组成database
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  MySQL数据库
+\end{enumerate}
+
+MySQL 是一个关系型数据库管理系统，由瑞典 MySQL AB 公司开发，目前属于
+Oracle 公司。MySQL
+是一种关联数据库管理系统，关联数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。
+
+\begin{itemize}
+\item
+  MySQL 是开源的，目前隶属于 Oracle 旗下产品。
+\item
+  MySQL 支持大型的数据库。可以处理拥有上千万条记录的大型数据库。
+\item
+  MySQL 使用标准的 SQL 数据语言形式。
+\item
+  MySQL 可以运行于多个系统上，并且支持多种语言。这些编程语言包括
+  C、C++、Python、Java、Perl、PHP、Eiffel、Ruby 和 Tcl 等。
+\item
+  MySQL 对PHP有很好的支持，PHP 是目前最流行的 Web 开发语言。
+\item
+  MySQL 支持大型数据库，支持 5000 万条记录的数据仓库，32
+  位系统表文件最大可支持 4GB，64 位系统支持最大的表文件为8TB。
+\item
+  MySQL 是可以定制的，采用了 GPL 协议，你可以修改源码来开发自己的 MySQL
+  系统。
+\end{itemize}
+
+\hypertarget{ux6280ux672fux7684ux9009ux578b}{%
+\subsection{技术的选型}\label{ux6280ux672fux7684ux9009ux578b}}
+
+\hypertarget{ssm}{%
+\subsubsection{SSM}\label{ssm}}
+
+SSM（Spring+SpringMVC+MyBatis）框架集由Spring、MyBatis两个开源框架整合而成（SpringMVC是Spring中的部分内容），常作为数据源较简单的web项目的框架。
+
+\textbf{Spring}
+
+Spring就像是整个项目中装配bean的大工厂，在配置文件中可以指定使用特定的参数去调用实体类的构造方法来实例化对象。也可以称之为项目中的粘合剂。
+
+Spring的核心思想是IoC（控制反转），即不再需要程序员去显式地\texttt{new}一个对象，而是让Spring框架帮你来完成这一切。
+
+\textbf{SpringMVC}
+
+SpringMVC在项目中拦截用户请求，它的核心Servlet即DispatcherServlet承担中介或是前台这样的职责，将用户请求通过HandlerMapping去匹配Controller，Controller就是具体对应请求所执行的操作。SpringMVC相当于SSH框架中struts。
+
+\textbf{mybatis}
+
+mybatis是对jdbc的封装，它让数据库底层操作变的透明。mybatis的操作都是围绕一个sqlSessionFactory实例展开的。mybatis通过配置文件关联到各实体类的Mapper文件，Mapper文件中配置了每个类对数据库所需进行的sql语句映射。在每次与数据库交互时，通过sqlSessionFactory拿到一个sqlSession，再执行sql命令。
+
+页面发送请求给控制器，控制器调用业务层处理逻辑，逻辑层向持久层发送请求，持久层与数据库交互，后将结果返回给业务层，业务层将处理逻辑发送给控制器，控制器再调用视图展现数据。
+
+\hypertarget{jsp}{%
+\subsubsection{JSP}\label{jsp}}
+
+JSP(Java Server Pages)是由Sun
+Microsystems公司倡导、许多公司参与一起建立的一种动态网页技术标准，类似于其他技术标准，如ASP，PHP等，主要用于开发动态网页内容。
+
+JSP是新一代的动态内容编程技术，它继承了Java技术的``一次编写，随处运行''的特性，允许Web开发人员开发和维护与平台无关，信息丰富动态的Web页面，包括HTML，DHTML，XHTML和XML，它能使Web开发人员轻易搭建网络平台，建立起功能强大的Web网站。JSP可以把用户界面从内容层次中分离出来，使得Web开发人员不必修改在底层的动态内容，就可以修改整体的页面布局。
+
+\hypertarget{mysql}{%
+\subsubsection{MySQL}\label{mysql}}
+
+数据库（Database）是一系列信息资源的集合。在一个数据库中，与一个项目有关的所有信息都可以叫做一条记录(Record)。每一条记录都是由一系列的字段(Field)组成的。一系列记录的集合就构成了数据表格(Table)。对于一个简单的``平面文件''的数据库来说，它仅包含了一个数据表格，而对一个``关系型''数据库来说，它却包含两个或两个以上的数据表格，表格的各字段之间存在这一种或多种关系（有时可以把这种关系叫做``链接''）。
+
+\emph{mysql}的特点
+
+ySQL是一种开放源代码的关系型数据库管理系统（RDBMS），MySQL数据库系统使用最常用的数据库管理语言-\/-结构化查询语言（SQL）进行数据库管理。
+
+由于MySQL是开放源代码的，因此任何人都可以在General Public
+License的许可下下载并根据个性化的需要对其进行修改。MySQL因为其速度、可靠性和适应性而备受关注。大多数人都认为在不需要事务化处理的情况下，MySQL是管理内容最好的选择。它使用系统核心提供的多线程机制提供完全的多线程运行模式，提供了面向C、C++、Eiffel、Java、Perl、PHP、Python以及Tcl等编程语言的编程接口（APIs），支持多种字段类型并且提供了完整的操作符支持查询中的SELECT和WHERE操作。
+
+目前MySQL被广泛地应用在Internet上的中小型网站中。由于其体积小、速度快、总体拥有成本低，尤其是开放源码这一特点，许多中小型网站为了降低网站总体拥有成本而选择了MySQL作为网站数据库。
+
+\hypertarget{ux7f16ux8f91ux5de5ux5177}{%
+\subsubsection{编辑工具}\label{ux7f16ux8f91ux5de5ux5177}}
+
+\begin{itemize}
+\item
+  IDEA
+\end{itemize}
+
+IDEA 全称 IntelliJ
+IDEA，是java编程语言开发的集成环境。IntelliJ在业界被公认为最好的java开发工具，尤其在智能代码助手、代码自动提示、重构、JavaEE支持、各类版本工具(git、svn等)、JUnit、CVS整合、代码分析、
+创新的GUI设计等方面的功能可以说是超常的。IDEA是JetBrains公司的产品，这家公司总部位于捷克共和国的首都布拉格，开发人员以严谨著称的东欧程序员为主。它的旗舰版本还支持HTML，CSS，PHP，MySQL，Python等。免费版只支持Java,Kotlin等少数语言。
+
+\begin{itemize}
+\item
+  SQLyog
+\end{itemize}
+
+SQLyog
+是一个快速而简洁的图形化管理MYSQL数据库的工具，它能够在任何地点有效地管理你的数据库，由业界著名的Webyog公司出品。\\
+使用SQLyog可以快速直观地让您从世界的任何角落通过网络来维护远端的MySQL数据库。
+
+\begin{itemize}
+\item
+  sublime text
+\end{itemize}
+
+Sublime Text
+是一个文本编辑器（收费软件，可以无限期试用），同时也是一个先进的代码编辑器。Sublime
+Text是由程序员Jon
+Skinner于2008年1月份所开发出来，它最初被设计为一个具有丰富扩展功能的Vim。
+
+Sublime
+Text具有漂亮的用户界面和强大的功能，例如代码缩略图，Python的插件，代码段等。还可自定义键绑定，菜单和工具栏。Sublime
+Text 的主要功能包括：拼写检查，书签，完整的 Python API ， Goto
+功能，即时项目切换，多选择，多窗口等等。Sublime Text
+是一个跨平台的编辑器，同时支持Windows、Linux、Mac OS X等操作系统。
+
+\hypertarget{ux7cfbux7edfux8bbeux8ba1}{%
+\section{系统设计}\label{ux7cfbux7edfux8bbeux8ba1}}
+
+\hypertarget{ux9700ux6c42ux5206ux6790}{%
+\subsubsection{需求分析}\label{ux9700ux6c42ux5206ux6790}}
+
+在浏览器网页中展示员工的ID、姓名、性别、邮箱、部门等信息，可以查询员工信息、增加员工、修改员工信息、离职删除员工信息。
+
+\hypertarget{ux6a21ux578bux521bux5efa}{%
+\subsubsection{模型创建}\label{ux6a21ux578bux521bux5efa}}
+
+\emph{\textbf{员工信息标}}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/Π/Desktop/新建文件夹/image/image-20220316221333734.png}
+\caption{}
+\end{figure}
+
+\emph{\textbf{部门信息标}}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/Π/Desktop/新建文件夹/image/Snipaste_2022-03-17_21-05-53.png}
+\caption{}
+\end{figure}
+
+外键为部门信息标的dept\_id项，
+
+\begin{itemize}
+\item
+  实体模型
+
+  部门模型
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/Π/Desktop/新建文件夹/image/image-20220317222638574.png}
+\caption{}
+\end{figure}
+
+员工信息模型
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/Π/Desktop/新建文件夹/image/image-20220317222802283.png}
+\caption{}
+\end{figure}
+
+\hypertarget{ux9875ux9762ux8bbeux8ba1}{%
+\subsubsection{页面设计}\label{ux9875ux9762ux8bbeux8ba1}}
+
+前端页面设计，使用Bootstra进行快速搭建页面模板，模板样式，如视频所示。下面是例图
+：
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/Π/Desktop/新建文件夹/image/image-20220317231431636.png}
+\caption{}
+\end{figure}
+
+如图所示，因为能力和开发时间所受限，未能将项目布置完整。望老师见谅。
+
+\hypertarget{ux4ee3ux7801ux5b9eux73b0}{%
+\section{代码实现}\label{ux4ee3ux7801ux5b9eux73b0}}
+
+分为3层，dao层、service层、controller层。
+
+dao层使用MyBatis和MyBatis的逆向化工程实现。实现步骤，将MyBatis注入到Spring容器中。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \CommentTok{\textless{}!{-}{-}spring配置文件{-}{-}\textgreater{}}
+    \CommentTok{\textless{}!{-}{-}配置数据源，事务控制{-}{-}\textgreater{}}
+\NormalTok{    \textless{}}\KeywordTok{context:property{-}placeholder}\OtherTok{ location=}\StringTok{"classpath:dbconfig.properties"}\NormalTok{/\textgreater{}}
+\NormalTok{    \textless{}}\KeywordTok{bean}\OtherTok{ id=}\StringTok{"dataSource"}\OtherTok{ class=}\StringTok{"com.mchange.v2.c3p0.ComboPooledDataSource"}\OtherTok{ destroy{-}method=}\StringTok{"close"}\NormalTok{\textgreater{}}
+\NormalTok{        \textless{}}\KeywordTok{property}\OtherTok{ name=}\StringTok{"jdbcUrl"}\OtherTok{ value=}\StringTok{"$\{jdbc.jdbcUrl\}"}\NormalTok{/\textgreater{}}
+\NormalTok{        \textless{}}\KeywordTok{property}\OtherTok{ name=}\StringTok{"user"}\OtherTok{ value=}\StringTok{"$\{jdbc.user\}"}\NormalTok{/\textgreater{}}
+\NormalTok{        \textless{}}\KeywordTok{property}\OtherTok{ name=}\StringTok{"password"}\OtherTok{ value=}\StringTok{"$\{jdbc.password\}"}\NormalTok{/\textgreater{}}
+\NormalTok{        \textless{}}\KeywordTok{property}\OtherTok{ name=}\StringTok{"driverClass"}\OtherTok{ value=}\StringTok{"$\{jdbc.driverClass\}"}\NormalTok{/\textgreater{}}
+\NormalTok{    \textless{}/}\KeywordTok{bean}\NormalTok{\textgreater{}}
+
+    \CommentTok{\textless{}!{-}{-}事务控制{-}{-}\textgreater{}}
+\NormalTok{    \textless{}}\KeywordTok{bean}\OtherTok{ id=}\StringTok{"transactionManager"}\OtherTok{ class=}\StringTok{"org.springframework.jdbc.datasource.DataSourceTransactionManager"}\NormalTok{\textgreater{}}
+\NormalTok{        \textless{}}\KeywordTok{property}\OtherTok{ name=}\StringTok{"dataSource"}\OtherTok{ ref=}\StringTok{"dataSource"}\NormalTok{/\textgreater{}}
+\NormalTok{    \textless{}/}\KeywordTok{bean}\NormalTok{\textgreater{}}
+\NormalTok{    \textless{}}\KeywordTok{aop:config}\NormalTok{\textgreater{}}
+\NormalTok{        \textless{}}\KeywordTok{aop:pointcut}\OtherTok{ id=}\StringTok{"txPoint"}\OtherTok{ expression=}\StringTok{"execution(* com.wheat.service..*(..))"}\NormalTok{/\textgreater{}}
+\NormalTok{        \textless{}}\KeywordTok{aop:advisor}\OtherTok{ advice{-}ref=}\StringTok{"txAdvice"}\OtherTok{ pointcut{-}ref=}\StringTok{"txPoint"}\NormalTok{/\textgreater{}}
+\NormalTok{    \textless{}/}\KeywordTok{aop:config}\NormalTok{\textgreater{}}
+    \CommentTok{\textless{}!{-}{-}切入点{-}{-}\textgreater{}}
+\NormalTok{    \textless{}}\KeywordTok{tx:advice}\OtherTok{ id=}\StringTok{"txAdvice"}\OtherTok{ transaction{-}manager=}\StringTok{"transactionManager"}\NormalTok{\textgreater{}}
+\NormalTok{        \textless{}}\KeywordTok{tx:attributes}\NormalTok{\textgreater{}}
+\NormalTok{            \textless{}}\KeywordTok{tx:method}\OtherTok{ name=}\StringTok{"*"}\NormalTok{/\textgreater{}}
+\NormalTok{            \textless{}}\KeywordTok{tx:method}\OtherTok{ name=}\StringTok{"get"}\OtherTok{ read{-}only=}\StringTok{"true"}\NormalTok{/\textgreater{}}
+\NormalTok{        \textless{}/}\KeywordTok{tx:attributes}\NormalTok{\textgreater{}}
+\NormalTok{    \textless{}/}\KeywordTok{tx:advice}\NormalTok{\textgreater{}}
+    \CommentTok{\textless{}!{-}{-}================================={-}{-}\textgreater{}}
+    \CommentTok{\textless{}!{-}{-}Mybatis配置{-}{-}\textgreater{}}
+\NormalTok{    \textless{}}\KeywordTok{bean}\OtherTok{ id=}\StringTok{"sqlSessionFactory"}\OtherTok{ class=}\StringTok{"org.mybatis.spring.SqlSessionFactoryBean"}\NormalTok{\textgreater{}}
+\NormalTok{        \textless{}}\KeywordTok{property}\OtherTok{ name=}\StringTok{"configLocation"}\OtherTok{ value=}\StringTok{"classpath:mybatis.xml"}\NormalTok{/\textgreater{}}
+\NormalTok{        \textless{}}\KeywordTok{property}\OtherTok{ name=}\StringTok{"dataSource"}\OtherTok{ ref=}\StringTok{"dataSource"}\NormalTok{/\textgreater{}}
+\NormalTok{        \textless{}}\KeywordTok{property}\OtherTok{ name=}\StringTok{"mapperLocations"}\OtherTok{ value=}\StringTok{"classpath:mappers/*.xml"}\NormalTok{/\textgreater{}}
+\NormalTok{    \textless{}/}\KeywordTok{bean}\NormalTok{\textgreater{}}
+
+    \CommentTok{\textless{}!{-}{-}    配置扫描器，将Mybatis接口实现加入到ioc容器中{-}{-}\textgreater{}}
+\NormalTok{    \textless{}}\KeywordTok{bean}\OtherTok{ class=}\StringTok{"org.mybatis.spring.mapper.MapperScannerConfigurer"}\NormalTok{\textgreater{}}
+\NormalTok{        \textless{}}\KeywordTok{property}\OtherTok{ name=}\StringTok{"basePackage"}\OtherTok{ value=}\StringTok{"com.wheat.dao"}\NormalTok{/\textgreater{}}
+\NormalTok{    \textless{}/}\KeywordTok{bean}\NormalTok{\textgreater{}}
+    \CommentTok{\textless{}!{-}{-}    配置一个可以批量执行的sqlSession{-}{-}\textgreater{}}
+\NormalTok{    \textless{}}\KeywordTok{bean}\OtherTok{ id=}\StringTok{"sessionTemplate"}\OtherTok{ class=}\StringTok{"org.mybatis.spring.SqlSessionTemplate"}\NormalTok{\textgreater{}}
+\NormalTok{        \textless{}}\KeywordTok{constructor{-}arg}\OtherTok{ name=}\StringTok{"sqlSessionFactory"}\OtherTok{ ref=}\StringTok{"sqlSessionFactory"}\NormalTok{/\textgreater{}}
+\NormalTok{        \textless{}}\KeywordTok{constructor{-}arg}\OtherTok{ name=}\StringTok{"executorType"}\OtherTok{ value=}\StringTok{"BATCH"}\NormalTok{/\textgreater{}}
+\NormalTok{    \textless{}/}\KeywordTok{bean}\NormalTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+实现MyBatis的逆向化工程，先引入所需的jar包，
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textless{}}\KeywordTok{dependency}\NormalTok{\textgreater{}}
+\NormalTok{            \textless{}}\KeywordTok{groupId}\NormalTok{\textgreater{}org.mybatis.generator\textless{}/}\KeywordTok{groupId}\NormalTok{\textgreater{}}
+\NormalTok{            \textless{}}\KeywordTok{artifactId}\NormalTok{\textgreater{}mybatis{-}generator{-}core\textless{}/}\KeywordTok{artifactId}\NormalTok{\textgreater{}}
+\NormalTok{            \textless{}}\KeywordTok{version}\NormalTok{\textgreater{}1.3.5\textless{}/}\KeywordTok{version}\NormalTok{\textgreater{}}
+\NormalTok{        \textless{}/}\KeywordTok{dependency}\NormalTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+再编写实现mybatis-generator-core（MyBatis逆向工程）的配置文件，
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{\textless{}}\KeywordTok{context}\OtherTok{ id=}\StringTok{"DB2Tables"}\OtherTok{ targetRuntime=}\StringTok{"MyBatis3"}\NormalTok{\textgreater{}}
+\NormalTok{		\textless{}}\KeywordTok{commentGenerator}\NormalTok{\textgreater{}}
+\NormalTok{			\textless{}}\KeywordTok{property}\OtherTok{ name=}\StringTok{"suppressAllComments"}\OtherTok{ value=}\StringTok{"true"}\NormalTok{ /\textgreater{}}
+\NormalTok{		\textless{}/}\KeywordTok{commentGenerator}\NormalTok{\textgreater{}}
+		\CommentTok{\textless{}!{-}{-} 配置数据库连接 {-}{-}\textgreater{}}
+\NormalTok{		\textless{}}\KeywordTok{jdbcConnection}\OtherTok{ driverClass=}\StringTok{"com.mysql.jdbc.Driver"}
+\OtherTok{			connectionURL=}\StringTok{"jdbc:mysql://localhost:3603/crud"}\OtherTok{ userId=}\StringTok{"tea"}
+\OtherTok{			password=}\StringTok{"pig"}\NormalTok{\textgreater{}}
+\NormalTok{		\textless{}/}\KeywordTok{jdbcConnection}\NormalTok{\textgreater{}}
+
+\NormalTok{		\textless{}}\KeywordTok{javaTypeResolver}\NormalTok{\textgreater{}}
+\NormalTok{			\textless{}}\KeywordTok{property}\OtherTok{ name=}\StringTok{"forceBigDecimals"}\OtherTok{ value=}\StringTok{"false"}\NormalTok{ /\textgreater{}}
+\NormalTok{		\textless{}/}\KeywordTok{javaTypeResolver}\NormalTok{\textgreater{}}
+
+		\CommentTok{\textless{}!{-}{-} 指定javaBean生成的位置 {-}{-}\textgreater{}}
+\NormalTok{		\textless{}}\KeywordTok{javaModelGenerator}\OtherTok{ targetPackage=}\StringTok{"com.wheat.bean"}
+\OtherTok{			targetProject=}\StringTok{"src\textbackslash{}main\textbackslash{}java"}\NormalTok{\textgreater{}}
+\NormalTok{			\textless{}}\KeywordTok{property}\OtherTok{ name=}\StringTok{"enableSubPackages"}\OtherTok{ value=}\StringTok{"true"}\NormalTok{ /\textgreater{}}
+\NormalTok{			\textless{}}\KeywordTok{property}\OtherTok{ name=}\StringTok{"trimStrings"}\OtherTok{ value=}\StringTok{"true"}\NormalTok{ /\textgreater{}}
+\NormalTok{		\textless{}/}\KeywordTok{javaModelGenerator}\NormalTok{\textgreater{}}
+
+		\CommentTok{\textless{}!{-}{-}指定sql映射文件生成的位置 {-}{-}\textgreater{}}
+\NormalTok{		\textless{}}\KeywordTok{sqlMapGenerator}\OtherTok{ targetPackage=}\StringTok{"mappers"}\OtherTok{ targetProject=}\StringTok{"src\textbackslash{}main\textbackslash{}resources"}\NormalTok{\textgreater{}}
+\NormalTok{			\textless{}}\KeywordTok{property}\OtherTok{ name=}\StringTok{"enableSubPackages"}\OtherTok{ value=}\StringTok{"true"}\NormalTok{ /\textgreater{}}
+\NormalTok{		\textless{}/}\KeywordTok{sqlMapGenerator}\NormalTok{\textgreater{}}
+
+		\CommentTok{\textless{}!{-}{-} 指定dao接口生成的位置，mapper接口 {-}{-}\textgreater{}}
+\NormalTok{		\textless{}}\KeywordTok{javaClientGenerator}\OtherTok{ type=}\StringTok{"XMLMAPPER"}
+\OtherTok{			targetPackage=}\StringTok{"com.wheat.dao"}\OtherTok{ targetProject=}\StringTok{"src\textbackslash{}main\textbackslash{}java"}\NormalTok{\textgreater{}}
+\NormalTok{			\textless{}}\KeywordTok{property}\OtherTok{ name=}\StringTok{"enableSubPackages"}\OtherTok{ value=}\StringTok{"true"}\NormalTok{ /\textgreater{}}
+\NormalTok{		\textless{}/}\KeywordTok{javaClientGenerator}\NormalTok{\textgreater{}}
+
+
+		\CommentTok{\textless{}!{-}{-} table指定每个表的生成策略 {-}{-}\textgreater{}}
+\NormalTok{		\textless{}}\KeywordTok{table}\OtherTok{ tableName=}\StringTok{"emp"}\OtherTok{ domainObjectName=}\StringTok{"Employee"}\NormalTok{\textgreater{}\textless{}/}\KeywordTok{table}\NormalTok{\textgreater{}}
+\NormalTok{		\textless{}}\KeywordTok{table}\OtherTok{ tableName=}\StringTok{"dept"}\OtherTok{ domainObjectName=}\StringTok{"Department"}\NormalTok{\textgreater{}\textless{}/}\KeywordTok{table}\NormalTok{\textgreater{}}
+\NormalTok{	\textless{}/}\KeywordTok{context}\NormalTok{\textgreater{}}
+\end{Highlighting}
+\end{Shaded}
+
+实现MyBatis的逆向化工程。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{public} \DataTypeTok{void} \FunctionTok{test}\OperatorTok{()} \KeywordTok{throws} \BuiltInTok{Exception}\OperatorTok{\{}
+        \BuiltInTok{List}\OperatorTok{\textless{}}\BuiltInTok{String}\OperatorTok{\textgreater{}}\NormalTok{ warnings }\OperatorTok{=} \KeywordTok{new} \BuiltInTok{ArrayList}\OperatorTok{\textless{}}\BuiltInTok{String}\OperatorTok{\textgreater{}();}
+        \DataTypeTok{boolean}\NormalTok{ overwrite }\OperatorTok{=} \KeywordTok{true}\OperatorTok{;}
+        \BuiltInTok{File}\NormalTok{ configFile }\OperatorTok{=} \KeywordTok{new} \BuiltInTok{File}\OperatorTok{(}\StringTok{"mbg.xml"}\OperatorTok{);}
+\NormalTok{        ConfigurationParser cp }\OperatorTok{=} \KeywordTok{new} \FunctionTok{ConfigurationParser}\OperatorTok{(}\NormalTok{warnings}\OperatorTok{);}
+        \BuiltInTok{Configuration}\NormalTok{ config }\OperatorTok{=}\NormalTok{ cp}\OperatorTok{.}\FunctionTok{parseConfiguration}\OperatorTok{(}\NormalTok{configFile}\OperatorTok{);}
+\NormalTok{        DefaultShellCallback callback }\OperatorTok{=} \KeywordTok{new} \FunctionTok{DefaultShellCallback}\OperatorTok{(}\NormalTok{overwrite}\OperatorTok{);}
+\NormalTok{        MyBatisGenerator myBatisGenerator }\OperatorTok{=} \KeywordTok{new} \FunctionTok{MyBatisGenerator}\OperatorTok{(}\NormalTok{config}\OperatorTok{,}
+\NormalTok{                callback}\OperatorTok{,}\NormalTok{ warnings}\OperatorTok{);}
+\NormalTok{        myBatisGenerator}\OperatorTok{.}\FunctionTok{generate}\OperatorTok{(}\KeywordTok{null}\OperatorTok{);}
+
+    \OperatorTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+最后生成的mapper文件和dao层代码
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+dao层 & mapper \\
+\midrule
+\endhead
+interface DepartmentMapper.java & DepartmentMapper.xml \\
+interface EmployeeMapper.java & EmployeeMapper.xml \\
+& \\
+\bottomrule
+\end{longtable}
+
+\hypertarget{ux524dux540eux7aefux5206ux79bb}{%
+\subsection{前后端分离}\label{ux524dux540eux7aefux5206ux79bb}}
+
+\hypertarget{ux81f4ux8c22}{%
+\section{致谢}\label{ux81f4ux8c22}}
+
+\hypertarget{ux53c2ux8003ux6587ux732e}{%
+\section{参考文献}\label{ux53c2ux8003ux6587ux732e}}
+
+\end{document}
